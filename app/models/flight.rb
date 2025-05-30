@@ -9,4 +9,9 @@ class Flight < ApplicationRecord
     seconds = arrival_time - departure_time
     ActiveSupport::Duration.build(seconds)
   end
+
+  def self.dates
+    departure_times = Flight.pluck(:departure_time)
+    departure_times.map(&:to_date).uniq
+  end
 end
