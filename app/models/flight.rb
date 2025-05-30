@@ -13,6 +13,10 @@ class Flight < ApplicationRecord
     ActiveSupport::Duration.build(seconds)
   end
 
+  def self.on_date(date)
+    where(departure_time: date.beginning_of_day..date.end_of_day)
+  end
+
   def self.dates
     departure_times = Flight.pluck(:departure_time)
     departure_times.map(&:to_date).uniq
