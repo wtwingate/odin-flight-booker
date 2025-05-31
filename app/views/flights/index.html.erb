@@ -1,3 +1,20 @@
 <h1>Flights</h1>
 
 <%= render "search_form" %>
+
+<table>
+  <tr>
+    <th>Departure Airport</th>
+    <th>Departure Time</th>
+    <th>Arrival Airport</th>
+    <th>Arrival Time</th>
+  </tr>
+  <% @flights.each do |flight| %>
+    <tr>
+      <td><%= flight.departure_airport.code %></td>
+      <td><%= flight.departure_time.to_fs(:long) %></td>
+      <td><%= flight.arrival_airport.code %></td>
+      <td><%= flight.arrival_time.to_fs(:long) %></td>
+    </tr>
+  <% end %>
+</table>
