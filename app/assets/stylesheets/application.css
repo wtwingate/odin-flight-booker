@@ -8,3 +8,50 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+html {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  max-width: 1024px;
+  margin-inline: auto;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-block: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-block: 1rem;
+}
+
+.search-form {
+  margin-block: 1rem;
+}
+
+.search-fields {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & label {
+    display: block;
+  }
+
+  & select,
+  & input {
+    height: 2rem;
+  }
+}
+
+.search-button {
+  margin-block: 1rem;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+}
