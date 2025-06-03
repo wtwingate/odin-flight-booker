@@ -1,0 +1,38 @@
+<% if flights.any? %>
+  <%= form_with url: :root, method: :post do |form| %>
+    <%= form.hidden_field :passenger_count, value: passenger_count %>
+    <table>
+      <thead>
+        <tr>
+          <th>Departing</th>
+          <th>Departure Time</th>
+          <th>Arriving</th>
+          <th>Arrival Time</th>
+          <th>Select</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flights.each do |flight| %>
+          <tr>
+            <td>
+              <%= flight.departure_airport.name %>
+            </td>
+            <td>
+              <%= time_tag flight.departure_time %>
+            </td>
+            <td>
+              <%= flight.arrival_airport.name %>
+            </td>
+            <td>
+              <%= time_tag flight.arrival_time %>
+            </td>
+            <td>
+              <%= form.radio_button :flight_id, flight.id %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= form.submit "Book a flight" %>
+  <% end %>
+<% end %>

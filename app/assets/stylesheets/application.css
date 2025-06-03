@@ -50,8 +50,42 @@ h2 {
   }
 }
 
-.search-button {
+/* Form submission buttons */
+input[type="submit"] {
   margin-block: 1rem;
   padding: 0.5rem 2rem;
   font-weight: bold;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0px 0px 6px gray;
+}
+
+thead {
+  background-color: black;
+  color: white;
+
+  th:last-child {
+    width: 10%;
+  }
+}
+
+tbody {
+  & tr:nth-child(even) {
+    background-color: lightgray;
+  }
+}
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: left;
+
+  &:nth-child(5) {
+    width: 10%;
+    text-align: center;
+  }
 }
