@@ -24,3 +24,19 @@ airports = [
 airports.each do |code, name|
   Airport.find_or_create_by!(code: code, name: name)
 end
+
+flights = [
+  [ "CLT", "ATL", "Tue, 03 Jun 2025 12:00:00 -0400", "Tue, 03 Jun 2025 13:20:00 -0400" ],
+]
+
+flights.each do |d_code, a_code, d_time, a_time|
+  departure_airport = Airport.find_by_code(d_code)
+  arrival_airport = Airport.find_by_code(a_code)
+  departure_time = DateTime.parse(d_time)
+  arrival_time = DateTime.parse(a_time)
+
+  Flight.find_or_create_by!(departure_airport: departure_airport,
+                            arrival_airport: arrival_airport,
+                            departure_time: departure_time,
+                            arrival_time: arrival_time)
+end
