@@ -1,5 +1,5 @@
 <% if flights.any? %>
-  <%= form_with url: :root, method: :post do |form| %>
+  <%= form_with url: :new_booking, method: :get do |form| %>
     <%= form.hidden_field :passenger_count, value: passenger_count %>
     <table>
       <thead>
