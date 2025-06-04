@@ -1,4 +1,4 @@
-<% if flights.any? %>
+<% if flights %>
   <%= form_with url: :new_booking, method: :get do |form| %>
     <%= form.hidden_field :passenger_count, value: passenger_count %>
     <table>
