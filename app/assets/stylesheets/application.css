@@ -51,9 +51,22 @@ h2 {
 }
 
 .passenger-info {
+  margin-block: 1rem;
+
   & label {
     display: block;
   }
+}
+
+.error-messages {
+  border: 2px solid red;
+  background-color: lightpink;
+  padding: 2rem;
+  width: max-content;
+}
+
+.field_with_errors input {
+  border: 2px solid red;
 }
 
 /* Form submission buttons */

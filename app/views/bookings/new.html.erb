@@ -1,25 +1,36 @@
 <h1>Book a Flight</h1>
 
+<% flight = Flight.find(@booking.flight_id) %>
 <%= form_with model: @booking do |form| %>
-  <h2>Flight #<%= @flight.id %></h2>
+  <h2>Flight #<%= flight.id %></h2>
 
-  <%= form.hidden_field :flight_id, value: @flight.id %>
+  <%= form.hidden_field :flight_id, value: flight.id %>
 
   <h3>Departing</h3>
   <p>
-    <%= @flight.departure_airport.name %>
-    (<%= @flight.departure_airport.code %>)
+    <%= flight.departure_airport.name %>
+    (<%= flight.departure_airport.code %>)
   </p>
-  <strong><%= time_tag @flight.departure_time %></strong>
+  <strong><%= time_tag flight.departure_time %></strong>
 
   <h3>Arriving</h3>
   <p>
-    <%= @flight.arrival_airport.name %>
-    (<%= @flight.arrival_airport.code %>)
+    <%= flight.arrival_airport.name %>
+    (<%= flight.arrival_airport.code %>)
   </p>
-  <strong><%= time_tag @flight.arrival_time %></strong>
+  <strong><%= time_tag flight.arrival_time %></strong>
 
   <h2>Passenger Info</h2>
+
+  <% if @booking.errors.any? %>
+    <div class="error-messages">
+      <% @booking.errors.each do |error| %>
+        <p>
+          <%= error.full_message %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
   <div class="passenger-info">
     <%= form.fields_for :passengers do |passenger_form| %>
       <div>
