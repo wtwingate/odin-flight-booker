@@ -20,17 +20,19 @@
   <strong><%= time_tag @flight.arrival_time %></strong>
 
   <h2>Passenger Info</h2>
-  <%= form.fields_for :passengers do |passenger_form| %>
-    <div>
-      <%= passenger_form.label :name %>
-      <%= passenger_form.text_field :name %>
-    </div>
+  <div class="passenger-info">
+    <%= form.fields_for :passengers do |passenger_form| %>
+      <div>
+        <%= passenger_form.label :name %>
+        <%= passenger_form.text_field :name %>
+      </div>
 
-    <div>
-      <%= passenger_form.label :email %>
-      <%= passenger_form.email_field :email %>
-    </div>
-  <% end %>
+      <div>
+        <%= passenger_form.label :email %>
+        <%= passenger_form.email_field :email %>
+      </div>
+    <% end %>
+  </div>
 
   <%= form.submit %>
 <% end %>

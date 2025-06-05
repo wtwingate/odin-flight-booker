@@ -50,6 +50,12 @@ h2 {
   }
 }
 
+.passenger-info {
+  & label {
+    display: block;
+  }
+}
+
 /* Form submission buttons */
 input[type="submit"] {
   margin-block: 1rem;
