@@ -31,18 +31,26 @@
       <% end %>
     </div>
   <% end %>
-  <div class="passenger-info">
-    <%= form.fields_for :passengers do |passenger_form| %>
-      <div>
-        <%= passenger_form.label :name %>
-        <%= passenger_form.text_field :name %>
-      </div>
 
-      <div>
-        <%= passenger_form.label :email %>
-        <%= passenger_form.email_field :email %>
-      </div>
+  <div data-controller="nested-form"
+       data-nested-form-passenger-count-value=<%= @booking.passengers.size %>
+       class="passenger-info">
+    <template data-nested-form-target="template">
+      <%= form.fields_for :passengers,
+         Passenger.new, child_index: 'NEW_RECORD' do |passenger_form| %>
+        <%= render "passenger_fields", passenger_form: passenger_form %>
+      <% end %>
+    </template>
+
+    <%= form.fields_for :passengers do |passenger_form| %>
+      <%= render "passenger_fields", passenger_form: passenger_form %>
     <% end %>
+
+    <div data-nested-form-target="passengers"></div>
+
+    <button data-action="nested-form#add" type="button">
+      Add Passenger
+    </button>
   </div>
 
   <%= form.submit %>
