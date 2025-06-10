@@ -42,14 +42,17 @@
       <% end %>
     </template>
 
-    <%= form.fields_for :passengers do |passenger_form| %>
-      <%= render "passenger_fields", passenger_form: passenger_form %>
-    <% end %>
-
-    <div data-nested-form-target="passengers"></div>
+    <div data-nested-form-target="passengers">
+      <%= form.fields_for :passengers do |passenger_form| %>
+        <%= render "passenger_fields", passenger_form: passenger_form %>
+      <% end %>
+    </div>
 
     <button data-action="nested-form#add" type="button">
       Add Passenger
+    </button>
+    <button data-action="nested-form#remove" type="button">
+      Remove Passenger
     </button>
   </div>
 

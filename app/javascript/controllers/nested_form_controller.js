@@ -22,4 +22,14 @@ export default class extends Controller {
 
     this.passengerCountValue++;
   }
+
+  remove() {
+    if (this.passengerCountValue === 1) {
+      return;
+    }
+
+    this.passengersTarget.removeChild(this.passengersTarget.lastElementChild);
+
+    this.passengerCountValue--;
+  }
 }
