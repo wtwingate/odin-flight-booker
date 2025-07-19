@@ -1,0 +1,15 @@
+<h1>Booking Confirmation</h1>
+
+<p>Hi <%= @passenger.name %>! Thanks for booking your flight with us!</p>
+
+<h2>Flight Details</h2>
+
+<p>
+  <strong>Departing:</strong> <%= @booking.flight.departure_airport.name %>
+  at <%= @booking.flight.departure_time %>
+</p>
+
+<p>
+  <strong>Arriving:</strong> <%= @booking.flight.arrival_airport.name %>
+  at <%= @booking.flight.arrival_time %>
+</p>
